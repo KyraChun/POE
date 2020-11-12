@@ -34,11 +34,7 @@ namespace GADE5112___20204162___Task_1
         {
             //A constructor that receives an X and Y position. It delegates the X and Y position to the Item constructor via a constructor initialiser. 
             //It then sets the amount to a random amount between 1 and 5 (inclusive).
-
             amountOfGold = rnd.Next(1, 6);
-
-            positionX = amountOfGold;
-            positionY = amountOfGold;
         }
 
         public override string ToString()

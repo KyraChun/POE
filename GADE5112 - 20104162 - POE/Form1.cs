@@ -12,11 +12,13 @@ namespace GADE5112___20104162___Task_1
 {
     public partial class Form1 : Form
     {
-        Map map = new Map();
+        private Map map;
+
 
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void heroName_LB_Click(object sender, EventArgs e)
@@ -37,13 +39,17 @@ namespace GADE5112___20104162___Task_1
         private void Form1_Load(object sender, EventArgs e)
         {
             GameEngine gameEngine = new GameEngine(map);
-            gameEngine.Load();
         }
 
         private void save_btn_Click(object sender, EventArgs e)
         {
             GameEngine gameEngine = new GameEngine(map);
             gameEngine.Save();
+        }
+
+        private void attack_BTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

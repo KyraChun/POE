@@ -6,6 +6,9 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
+// Making sure we don't have to worry
+using static GADE5112___20104162___Task_1.Character;
 
 namespace GADE5112___20104162___Task_1
 {
@@ -18,23 +21,67 @@ namespace GADE5112___20104162___Task_1
             this.map = map;
         }
 
-        protected Map Map = new Map();
+        protected Map localMap;
+        private const string fileName = "Map.binary";
 
         public Map map
         {
             get
             {
-                return Map;
+                return localMap;
             }
             set
             {
-                map = value;
+                localMap = value;
             }
         }
 
         public bool MovePlayer(Character.Movement direction)
         {
-            return true;
+            int x, y;
+            x = 0;
+            y = 0;
+            Character.Movement selectedMove = direction;
+            switch (selectedMove)
+            {
+                case Movement.NoMovement:
+                    selectedMove = Movement.NoMovement;
+                    break;
+
+                case Movement.Up:
+                    x = 0;
+                    y = 1;
+                    break;
+
+                case Movement.Down:
+                    x = 0;
+                    y = -1;
+                    break;
+
+                case Movement.Left:
+                    x = -1;
+                    y = 0;
+                    break;
+
+                case Movement.Right:
+                    x = 1;
+                    y = 0;
+                    break;
+
+                default:
+                    selectedMove = Movement.NoMovement;
+                    break;
+            }
+            if (localMap.GetItemAtPosition(x, y) == null)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         public override string ToString()
@@ -54,17 +101,17 @@ namespace GADE5112___20104162___Task_1
 
         public void Save()
         {
-            FileStream outputFile = new FileStream("Map.binary", FileMode.Create, FileAccess.Write);
+            FileStream outputFile = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            binaryFormatter.Serialize(outputFile, Map);
+            binaryFormatter.Serialize(outputFile, localMap);
             outputFile.Close();
 
         }
         public void Load()
         {
-            FileStream inputFile = new FileStream("Map.binary", FileMode.Open, FileAccess.Read);
+            FileStream inputFile = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            Map fromFile= (Map)binaryFormatter.Deserialize(inputFile);
+            Map fromFile = (Map)binaryFormatter.Deserialize(inputFile);
             inputFile.Close();
         }
     }

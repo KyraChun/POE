@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GADE5112___20104162___Task_1
+﻿namespace GADE5112___20104162___Task_1
 {
-    class Hero : Character
+    internal class Hero : Character
     {
         //Concrete Hero subclass, which inherits from Character.
 
@@ -33,7 +27,50 @@ namespace GADE5112___20104162___Task_1
 
         public override Movement ReturnMove(Movement move)
         {
-            throw new NotImplementedException();
+            int x, y;
+            x = 0;
+            y = 0;
+            Movement selectedMove = move;
+            switch (selectedMove)
+            {
+                case Movement.NoMovement:
+                    selectedMove = Movement.NoMovement;
+                    break;
+
+                case Movement.Up:
+                    x = 0;
+                    y = 1;
+                    break;
+
+                case Movement.Down:
+                    x = 0;
+                    y = -1;
+                    break;
+
+                case Movement.Left:
+                    x = -1;
+                    y = 0;
+                    break;
+
+                case Movement.Right:
+                    x = 1;
+                    y = 0;
+                    break;
+
+                default:
+                    selectedMove = Movement.NoMovement;
+                    break;
+            }
+
+            if (base.characterVision[x, y] == null)
+            {
+                return selectedMove;
+            }
+            else
+            {
+                return Movement.NoMovement;
+
+            }
         }
     }
 }

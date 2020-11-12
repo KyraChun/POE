@@ -121,7 +121,7 @@ namespace GADE5112___20104162___Task_1
 
         public Item GetItemAtPosition(int x, int y)
         {
-            return 0;
+            return (Item)mapArray[x, y];
         }
     }
 }

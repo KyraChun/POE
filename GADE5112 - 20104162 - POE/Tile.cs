@@ -20,7 +20,7 @@ namespace GADE5112___20104162___Task_1
             }
             set
             {
-                X = value;
+                x = value;
             }
         }
 
@@ -33,7 +33,7 @@ namespace GADE5112___20104162___Task_1
             }
             set
             {
-                Y = value;
+                y = value;
             }
         }
 
@@ -48,12 +48,12 @@ namespace GADE5112___20104162___Task_1
             Weapon,
         }
 
-        public Tile()
+        public Tile(int x, int y)
         {
             //Constructor that receives and sets initial values for relevant variables.
 
-            X = 0;
-            Y = 0;
+            X = x;
+            Y = y;
             char hero = 'H';
             char enemy = 'E';
             char gold = 'G';
@@ -70,10 +70,8 @@ namespace GADE5112___20104162___Task_1
         //Obstacle subclass contains nothing extra, and its constructor simply calls the base class’s constructor with X and Y parameters.
         //The obstacle class only exists currently to border our map with Obstacle tiles that the character can't move past.
 
-        public Obstacle(int positionX, int positionY) : base()
+        public Obstacle(int positionX, int positionY) : base(positionX, positionY)
         {
-            base.Y = positionY;
-            base.X = positionX;
         }
     }
 
@@ -81,10 +79,8 @@ namespace GADE5112___20104162___Task_1
     {
         //EmptyTile is identical to Obstacle, however it merely exists to denote an empty tile.
 
-        public EmptyTile(int positionX, int positionY) : base()
+        public EmptyTile(int positionX, int positionY) : base(positionX, positionY)
         {
-            base.Y = positionY;
-            base.X = positionX;
         }
     }
 }

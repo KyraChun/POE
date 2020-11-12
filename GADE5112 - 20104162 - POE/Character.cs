@@ -1,5 +1,6 @@
 ﻿using GADE5112___20204162___Task_1;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace GADE5112___20104162___Task_1
     abstract class Character : Tile
     {
         //This abstract base class is called Character and it inherits from Tile.
-        //This is the true base class for your Hero and Goblin classes
+        //This is the true base class for your Hero and Goblin classes.
 
         protected Tile[,] characterVisionArray;
         public int characterHP
@@ -22,12 +23,10 @@ namespace GADE5112___20104162___Task_1
         public int goldPurse
         { get; set; }
 
-        public Character(int positionX, int positionY, char symbol) : base()
+        public Character(int positionX, int positionY, char symbol) : base(positionX, positionY)
         {
             //A constructor that receives X and Y positions and a symbol and delegates the setting of those variables to the Tile class via a constructor initializer.
 
-            base.Y = positionY;
-            base.X = positionX;
         }
 
         public Tile[,] characterVision
@@ -167,12 +166,11 @@ namespace GADE5112___20104162___Task_1
         {
             //Qu 3.2 : Edit your Character and Map and GameEngine classes to allow Items to be picked up by Characters.
 
-            Tile tempTile = null;
-
             switch (i)
             {
-                case TileType.Gold:
-                    goldPurse += Gold();
+                case Gold gold:
+                    gold = (Gold)i;
+                    goldPurse += gold.gold_Drop;
                     break;
                 default:
                     break;
