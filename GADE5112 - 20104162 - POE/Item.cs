@@ -9,7 +9,7 @@ namespace GADE5112___20204162___Task_1
 {
     abstract class Item : Tile
     {
-        //Qu 2.1 : This abstract base class Item, which inherits from Tile.
+        //This abstract base class Item, which inherits from Tile.
 
         public Item(int positionX, int positionY) : base(positionX, positionY)
         {

@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Odbc;
+﻿using GADE5112___20204162___Task_1;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
+
 // Making sure we don't have to worry
 using static GADE5112___20104162___Task_1.Character;
 
 namespace GADE5112___20104162___Task_1
 {
-    class GameEngine
+    internal class GameEngine
     {
         //Create the GameEngine class.
+        protected Map localMap;
+
+        private const string fileName = "Map.binary";
 
         public GameEngine(Map map)
         {
             this.map = map;
         }
-
-        protected Map localMap;
-        private const string fileName = "Map.binary";
 
         public Map map
         {
@@ -38,9 +33,10 @@ namespace GADE5112___20104162___Task_1
 
         public bool MovePlayer(Character.Movement direction)
         {
-            int x, y;
-            x = 0;
-            y = 0;
+            int x, y, tempx, tempy;
+            x = this.localMap.hero.X;
+            y = this.localMap.hero.Y;
+
             Character.Movement selectedMove = direction;
             switch (selectedMove)
             {
@@ -50,12 +46,12 @@ namespace GADE5112___20104162___Task_1
 
                 case Movement.Up:
                     x = 0;
-                    y = 1;
+                    y = -1;
                     break;
 
                 case Movement.Down:
                     x = 0;
-                    y = -1;
+                    y = 1;
                     break;
 
                 case Movement.Left:
@@ -72,15 +68,20 @@ namespace GADE5112___20104162___Task_1
                     selectedMove = Movement.NoMovement;
                     break;
             }
-            if (localMap.GetItemAtPosition(x, y) == null)
+            // Check for valid move
+            if (localMap.MapGrab[localMap.hero.X + x, localMap.hero.Y + y] is EmptyTile || localMap.GetItemAtPosition(localMap.hero.X + x, localMap.hero.Y + y) is Gold)
             {
+                // Valid
+
+                localMap.hero.Move(selectedMove);
+                localMap.UpdateMap();
+                localMap.MapGrab[localMap.hero.X - x, localMap.hero.Y - y] = new EmptyTile(localMap.hero.X - x, localMap.hero.Y - y);
                 return true;
 
             }
-            else
-            {
-                return false;
-            }
+            else { return false; }
+
+
 
         }
 
@@ -91,12 +92,10 @@ namespace GADE5112___20104162___Task_1
 
         public void EnemyAttacks()
         {
-
         }
 
         public void MoveEnemies()
         {
-
         }
 
         public void Save()
@@ -105,8 +104,8 @@ namespace GADE5112___20104162___Task_1
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             binaryFormatter.Serialize(outputFile, localMap);
             outputFile.Close();
-
         }
+
         public void Load()
         {
             FileStream inputFile = new FileStream(fileName, FileMode.Open, FileAccess.Read);

@@ -32,4 +32,9 @@ namespace GADE5112___20104162___Task_1
             return $"Enemy Class:  { this.GetType().FullName }  at [  { X } , { Y } ] (  { characterDamage } )";
         }
     }
+
+    //class Leader : Enemy
+    //{
+
+    //}
 }

@@ -14,6 +14,7 @@
             base.characterMaxHP = heroHP;
         }
 
+
         public override string ToString()
         {
             //An overridden ToString() method: This returns the formatted Player Stats as shown below:
@@ -62,7 +63,7 @@
                     break;
             }
 
-            if (base.characterVision[x, y] == null)
+            if (base.characterVision[x, y] is EmptyTile)
             {
                 return selectedMove;
             }

@@ -9,7 +9,7 @@ namespace GADE5112___20204162___Task_1
 {
     class Gold : Item
     {
-        //Qu 2.2 : This is the concrete class Gold which inherits from Item.
+        //This is the concrete class Gold which inherits from Item.
 
 
         private int amountOfGold;
@@ -27,8 +27,8 @@ namespace GADE5112___20204162___Task_1
             }
         }
 
-        Random rnd = new Random();
         //A private Random object to randomize gold amounts.
+        Random rnd = new Random();
 
         public Gold(int positionX, int positionY) : base(positionX, positionY)
         {
