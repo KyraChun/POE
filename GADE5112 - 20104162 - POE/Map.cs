@@ -21,6 +21,7 @@ namespace GADE5112___20104162___Task_1
         protected Enemy[] numEnemies;
 
         //You must create a new Item array that stores items that exist on the map.
+
         protected Item[] itemArray;
         protected Hero newHero;
         protected int mapWidth;
@@ -142,6 +143,7 @@ namespace GADE5112___20104162___Task_1
         private Tile Create(Tile.TileType type)
         {
             //This method is used to create objects and also place them on the map.
+
             random = new Random();
             Tile tempTile = null;
             int randomX = random.Next(1, mapWidth - 1);
@@ -161,9 +163,11 @@ namespace GADE5112___20104162___Task_1
                     tempTile = new Hero(randomX, randomY, heroHP, heroSymbol);
                     break;
                 case Tile.TileType.Enemy:
-                    //Q.3.1. Integrate the Gold and Mage classes into your existing GameEngine and Map classes.
+
+                    //Integrate the Gold and Mage classes into your existing GameEngine and Map classes.
 
                     //Your Enemy array in map should now randomize between Goblins and Mages.
+
                     int typeEnemy = random.Next(3);
                     if (typeEnemy <= 1)
                     {

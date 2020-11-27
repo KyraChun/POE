@@ -10,19 +10,20 @@ using System.Windows.Forms;
 
 namespace GADE5112___20104162___Task_1
 {
-    public partial class Form1 : Form
+    public partial class GameForm : Form
     {
         private Map localmap;
         private int border;
         private GameEngine gameEng;
 
-        public Form1()
+        public GameForm()
         {
             InitializeComponent();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            //capture up arrow key
             if (keyData == Keys.Up)
             {
                 if (gameEng.MovePlayer(Character.Movement.Up) == false) { };
@@ -60,7 +61,7 @@ namespace GADE5112___20104162___Task_1
 
         private void heroName_LB_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void heroAttack_ListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,8 +91,6 @@ namespace GADE5112___20104162___Task_1
 
         private void map_LB_Click(object sender, EventArgs e)
         {
-            //Map map = new Map();
-            //GameEngine gameEngine = new GameEngine(map);
         }
 
         private void start_btn_Click(object sender, EventArgs e)
@@ -100,6 +99,7 @@ namespace GADE5112___20104162___Task_1
             gameEng = new GameEngine(localmap);
             border = gameEng.map.MapWidthGrab - 1;
             updateMap();
+            heroName_LB.Text = Convert.ToString(heroName_TB.Text);
         }
 
         private void updateMap()
@@ -107,7 +107,8 @@ namespace GADE5112___20104162___Task_1
             map.Clear();
             string newLine;
             heroStats_LB.Text = gameEng.map.hero.ToString();
-            // This should update the map every time we move etc...
+
+            // This updates the map every time we move 
             for (int y = 0; y < gameEng.map.MapHeightGrab; y++)
             {
                 if (y != 0) { map.Text += "\n"; };
@@ -116,7 +117,7 @@ namespace GADE5112___20104162___Task_1
                     switch (gameEng.map.MapGrab[x, y])
                     {
                         case EmptyTile _:
-                            map.Text += "#";
+                            map.Text += "_";
                             break;
 
                         case Obstacle _:
@@ -134,12 +135,20 @@ namespace GADE5112___20104162___Task_1
                         case GADE5112___20204162___Task_1.Mage _:
                             map.Text += "M";
                             break;
+                        case Leader _:
+                            map.Text += "L";
+                            break;
 
                     }
 
                 }
 
             }
+
+        }
+
+        private void heroName_TB_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

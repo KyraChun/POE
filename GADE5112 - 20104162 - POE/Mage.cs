@@ -9,7 +9,7 @@ namespace GADE5112___20204162___Task_1
 {
     class Mage : Enemy
     {
-        //Qu 2.3 : This is the concrete Mage subclass, a new type of Enemy.
+        //This is the concrete Mage subclass, a new type of Enemy.
 
         public Mage(int positionX, int positionY) : base(5, 5, positionX, positionY, 'M')
         {

@@ -23,10 +23,9 @@ namespace GADE5112___20104162___Task_1
         public int goldPurse
         { get; set; }
 
-        public Character(int positionX, int positionY, char symbol) : base(positionX, positionY)
+        public Character(int positionX, int positionY) : base(positionX, positionY)
         {
             //A constructor that receives X and Y positions and a symbol and delegates the setting of those variables to the Tile class via a constructor initializer.
-
         }
 
         public Tile[,] characterVision
@@ -52,6 +51,7 @@ namespace GADE5112___20104162___Task_1
         }
 
         //The Character class contains the following methods, most of which define generic implementations for all characters to use.
+
         public virtual void Attack(Character target)
         {
             //Attacks a target and decreases its health by the attacking character’s damage.
@@ -77,7 +77,9 @@ namespace GADE5112___20104162___Task_1
             //Checks if a target is in range of a character.
 
             int distanceToTarget = DistanceTo(target);
+
             // Change 1 when weapons implemented.
+
             if (distanceToTarget <= 1)
             {
                 return true;

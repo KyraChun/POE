@@ -11,8 +11,8 @@ namespace GADE5112___20204162___Task_1
     {
         //This is the concrete class Gold which inherits from Item.
 
-
         private int amountOfGold;
+
         //A private member variable for the amount of gold represented by a gold drop and a public accessor that can return that amount.
 
         public int gold_Drop
@@ -28,12 +28,14 @@ namespace GADE5112___20204162___Task_1
         }
 
         //A private Random object to randomize gold amounts.
+
         Random rnd = new Random();
 
         public Gold(int positionX, int positionY) : base(positionX, positionY)
         {
             //A constructor that receives an X and Y position. It delegates the X and Y position to the Item constructor via a constructor initialiser. 
             //It then sets the amount to a random amount between 1 and 5 (inclusive).
+
             amountOfGold = rnd.Next(1, 6);
         }
 

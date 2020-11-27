@@ -4,7 +4,7 @@
     {
         //Concrete Hero subclass, which inherits from Character.
 
-        public Hero(int positionX, int positionY, int heroHP, char symbol) : base(positionX, positionY, symbol)
+        public Hero(int positionX, int positionY, int heroHP, char symbol) : base(positionX, positionY)
         {
             //The Hero constructor receives X and Y position and HP.
             //It should then set the HP and max HP of the hero based on the parameter.
@@ -70,7 +70,6 @@
             else
             {
                 return Movement.NoMovement;
-
             }
         }
     }

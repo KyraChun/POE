@@ -1,6 +1,6 @@
 ﻿namespace GADE5112___20104162___Task_1
 {
-    partial class Form1
+    partial class GameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -58,6 +58,7 @@
             this.heroName_TB.Name = "heroName_TB";
             this.heroName_TB.Size = new System.Drawing.Size(186, 22);
             this.heroName_TB.TabIndex = 2;
+            this.heroName_TB.TextChanged += new System.EventHandler(this.heroName_TB_TextChanged);
             // 
             // heroName_LB
             // 
@@ -151,7 +152,7 @@
             this.start_btn.UseVisualStyleBackColor = true;
             this.start_btn.Click += new System.EventHandler(this.start_btn_Click);
             // 
-            // Form1
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -169,7 +170,7 @@
             this.Controls.Add(this.heroName_TB);
             this.Controls.Add(this.heroStats_LB);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "GameForm";
             this.Text = "Rogue Game";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

@@ -1,8 +1,6 @@
 ﻿using GADE5112___20204162___Task_1;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
-// Making sure we don't have to worry
 using static GADE5112___20104162___Task_1.Character;
 
 namespace GADE5112___20104162___Task_1
@@ -10,9 +8,13 @@ namespace GADE5112___20104162___Task_1
     internal class GameEngine
     {
         //Create the GameEngine class.
-        protected Map localMap;
 
+        protected Map localMap;
         private const string fileName = "Map.binary";
+
+        //Give the GameEngine class a Shop object. 
+
+        Shop shopObj = new Shop();
 
         public GameEngine(Map map)
         {
@@ -68,7 +70,9 @@ namespace GADE5112___20104162___Task_1
                     selectedMove = Movement.NoMovement;
                     break;
             }
+
             // Check for valid move
+
             if (localMap.MapGrab[localMap.hero.X + x, localMap.hero.Y + y] is EmptyTile || localMap.GetItemAtPosition(localMap.hero.X + x, localMap.hero.Y + y) is Gold)
             {
                 // Valid
@@ -80,9 +84,6 @@ namespace GADE5112___20104162___Task_1
 
             }
             else { return false; }
-
-
-
         }
 
         public override string ToString()

@@ -9,6 +9,7 @@ namespace GADE5112___20104162___Task_1
     abstract class Tile
     {
         //This is an abstract Tile class that will contain all in-game object postions.
+
         protected int x;
         protected int y;
 

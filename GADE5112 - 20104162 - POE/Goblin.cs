@@ -15,7 +15,6 @@ namespace GADE5112___20104162___Task_1
 
         }
 
-
         public Movement getRandomMove()
         {
             Movement selectedMove = Movement.NoMovement;
@@ -23,14 +22,10 @@ namespace GADE5112___20104162___Task_1
             Random random = new Random();
             selectedMove = (Movement)values.GetValue(random.Next(values.Length));
             return selectedMove;
-
         }
-
-
 
         public override Movement ReturnMove(Movement move = 0)
         {
-
             Movement selectedMove = getRandomMove();
             int x, y;
             x = 0;
