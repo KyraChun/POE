@@ -1,5 +1,4 @@
-﻿using GADE5112___20204162___Task_1;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using static GADE5112___20104162___Task_1.Character;
 

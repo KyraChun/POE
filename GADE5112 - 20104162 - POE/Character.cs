@@ -1,5 +1,4 @@
-﻿using GADE5112___20204162___Task_1;
-using System;
+﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +20,14 @@ namespace GADE5112___20104162___Task_1
         public int characterDamage
         { get; set; }
         public int goldPurse
+        { get; set; }
+        public string weaponType
+        { get; set; }
+        public double weaponDamage
+        { get; set; }
+        public double weaponDurability
+        { get; set; }
+        public virtual double weaponRange
         { get; set; }
 
         public Character(int positionX, int positionY) : base(positionX, positionY)

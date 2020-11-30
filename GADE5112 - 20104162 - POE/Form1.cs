@@ -15,6 +15,8 @@ namespace GADE5112___20104162___Task_1
         private Map localmap;
         private int border;
         private GameEngine gameEng;
+        private Enemy enemy;
+        private Random random = new Random();
 
         public GameForm()
         {
@@ -23,28 +25,28 @@ namespace GADE5112___20104162___Task_1
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            //capture up arrow key
+            //capture Up arrow key
             if (keyData == Keys.Up)
             {
                 if (gameEng.MovePlayer(Character.Movement.Up) == false) { };
                 updateMap();
                 return true;
             }
-            //capture down arrow key
+            //capture Down arrow key
             if (keyData == Keys.Down)
             {
                 if (gameEng.MovePlayer(Character.Movement.Down) == false) { };
                 updateMap();
                 return true;
             }
-            //capture left arrow key
+            //capture Left arrow key
             if (keyData == Keys.Left)
             {
                 if (gameEng.MovePlayer(Character.Movement.Left) == false) { };
                 updateMap();
                 return true;
             }
-            //capture right arrow key
+            //capture Right arrow key
             if (keyData == Keys.Right)
             {
                 if (gameEng.MovePlayer(Character.Movement.Right) == false) { };
@@ -60,33 +62,27 @@ namespace GADE5112___20104162___Task_1
         }
 
         private void heroName_LB_Click(object sender, EventArgs e)
-        {
-            
+        {            
         }
 
         private void heroAttack_ListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
+        {            
         }
 
         private void save_btn_Click(object sender, EventArgs e)
         {
-
         }
 
         private void attack_BTN_Click(object sender, EventArgs e)
         {
-
         }
 
         private void map_LB_Click(object sender, EventArgs e)
@@ -119,20 +115,19 @@ namespace GADE5112___20104162___Task_1
                         case EmptyTile _:
                             map.Text += "_";
                             break;
-
                         case Obstacle _:
                             map.Text += "X";
                             break;
                         case Hero _:
                             map.Text += "H";
                             break;
-                        case GADE5112___20204162___Task_1.Gold _:
+                        case Gold _:
                             map.Text += "G";
                             break;
                         case Goblin _:
                             map.Text += "K";
                             break;
-                        case GADE5112___20204162___Task_1.Mage _:
+                        case Mage _:
                             map.Text += "M";
                             break;
                         case Leader _:
@@ -140,16 +135,22 @@ namespace GADE5112___20104162___Task_1
                             break;
 
                     }
-
                 }
-
             }
-
         }
 
         private void heroName_TB_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void shop_btn_Click(object sender, EventArgs e)
+        {
+            // Assigned to the Form button to describe what is in the shop and how much it costs. 
+
+            int weapon = random.Next(1, 3);
+            Shop myShop = new Shop();
+            myShop.DisplayWeapon(weapon);
         }
     }
 }

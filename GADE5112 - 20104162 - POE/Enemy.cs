@@ -29,7 +29,11 @@ namespace GADE5112___20104162___Task_1
             //An overridden ToString method that, using the enemy’s class, outputs a string that looks as follows:  
             //     EnemyClassName at[X, Y] (Amount DMG)
 
-            return $"Enemy Class:  { this.GetType().FullName }  at [  { X } , { Y } ] (  { characterDamage } )";
+            //You will also need to edit your Player Stats and Enemy Stats ToString() to include weapon damage, range etc.
+            //Barehanded: Mage(5 / 5HP) at[6, 6](5 DMG)
+            //Equipped: Leader(20 / 20HP) at[6, 1] with Longsword(DURABILITYxAMOUNT DMG)
+
+            return $"Enemy Class: {weaponType}: { this.GetType().FullName } ({characterHP}  at [  { X } , { Y } ] (  {characterDamage} DMG)";
         }
     }
 
@@ -38,7 +42,7 @@ namespace GADE5112___20104162___Task_1
     {
         //Qu 2.4 : Create the Leader class, a subclass of Enemy.
 
-        public Leader(int enemyHP, int enemyDamage, int positionX, int positionY, char symbol = 'L') : base(enemyHP, enemyDamage, positionX, positionY, symbol)
+        public Leader(int enemyHP, int enemyDamage, int positionX, int positionY, char symbol) : base(20, 2, positionX, positionY, 'L')
         {
             //A constructor that receives only an X and Y position, but delegates its  variable setting mostly to the Enemy class along the following parameters: 
             //          o Leaders have 20 HP
@@ -46,13 +50,21 @@ namespace GADE5112___20104162___Task_1
 
             //It then sets all the relevant member variables.
 
-            enemyHP = 20;
-            enemyDamage = 2;
-            characterMaxHP = characterHP;
         }
 
-        private char leaderTile
-        { get; set; }
+        private Tile leaderTarget
+        {
+            get
+            {
+                return leaderTarget;
+            }
+            set
+            {
+                leaderTarget = value;
+            }
+        }
+
+
 
         public Movement getRandomMove()
         {

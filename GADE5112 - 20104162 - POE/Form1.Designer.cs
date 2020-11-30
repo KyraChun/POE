@@ -39,6 +39,7 @@
             this.map = new System.Windows.Forms.RichTextBox();
             this.load_btn = new System.Windows.Forms.Button();
             this.start_btn = new System.Windows.Forms.Button();
+            this.shop_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // heroStats_LB
@@ -152,12 +153,23 @@
             this.start_btn.UseVisualStyleBackColor = true;
             this.start_btn.Click += new System.EventHandler(this.start_btn_Click);
             // 
+            // shop_btn
+            // 
+            this.shop_btn.Location = new System.Drawing.Point(171, 591);
+            this.shop_btn.Name = "shop_btn";
+            this.shop_btn.Size = new System.Drawing.Size(196, 54);
+            this.shop_btn.TabIndex = 12;
+            this.shop_btn.Text = "Shop";
+            this.shop_btn.UseVisualStyleBackColor = true;
+            this.shop_btn.Click += new System.EventHandler(this.shop_btn_Click);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(551, 619);
+            this.ClientSize = new System.Drawing.Size(537, 657);
+            this.Controls.Add(this.shop_btn);
             this.Controls.Add(this.start_btn);
             this.Controls.Add(this.load_btn);
             this.Controls.Add(this.map);
@@ -190,6 +202,7 @@
         private System.Windows.Forms.RichTextBox map;
         private System.Windows.Forms.Button load_btn;
         private System.Windows.Forms.Button start_btn;
+        private System.Windows.Forms.Button shop_btn;
     }
 }
 

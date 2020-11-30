@@ -12,6 +12,7 @@
 
             base.characterDamage = 2;
             base.characterMaxHP = heroHP;
+            
         }
 
 
@@ -23,7 +24,9 @@
             //      Damage: 2
             //      [X, Y]
 
-            return $"Player Stats: \n HP: {base.characterHP} / {base.characterMaxHP} \n Damage: {base.characterDamage} \n Gold: {base.goldPurse} \n ({base.X} , {base.Y})";
+            // You will also need to edit your Player Stats and Enemy Stats ToString() to include weapon damage, range etc. 
+
+            return $"Player Stats: \n HP: {characterHP} / {characterMaxHP} \n Current Weapon: {weaponType} \n Weapon Range: {weaponRange} \n Weapon Damage: {weaponDamage} \n Durability: {weaponDurability} \n Gold: {goldPurse}";
         }
 
         public override Movement ReturnMove(Movement move)
