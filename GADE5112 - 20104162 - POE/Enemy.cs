@@ -42,14 +42,13 @@ namespace GADE5112___20104162___Task_1
     {
         //Qu 2.4 : Create the Leader class, a subclass of Enemy.
 
-        public Leader(int enemyHP, int enemyDamage, int positionX, int positionY, char symbol) : base(20, 2, positionX, positionY, 'L')
+        public Leader(int positionX, int positionY) : base(20, 2, positionX, positionY, 'L')
         {
             //A constructor that receives only an X and Y position, but delegates its  variable setting mostly to the Enemy class along the following parameters: 
             //          o Leaders have 20 HP
             //          o Leaders do 2 damage
 
             //It then sets all the relevant member variables.
-
         }
 
         private Tile leaderTarget
@@ -63,8 +62,6 @@ namespace GADE5112___20104162___Task_1
                 leaderTarget = value;
             }
         }
-
-
 
         public Movement getRandomMove()
         {
@@ -138,7 +135,6 @@ namespace GADE5112___20104162___Task_1
             }
 
             return selectedMove;
-        }
-    
+        }    
     }
 }

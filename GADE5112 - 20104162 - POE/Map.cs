@@ -27,7 +27,7 @@ namespace GADE5112___20104162___Task_1
         protected int mapHeight;
         protected Random random = new Random();
 
-        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numberEnemies, int gold)
+        public Map(int minWidth, int maxWidth, int minHeight, int maxHeight, int numberEnemies, int gold, int weaponDrop)
         {
             //A constructor that receives a minimum and maximum width, minimum and maximum height and number of enemies.
 
@@ -57,8 +57,6 @@ namespace GADE5112___20104162___Task_1
                             mapArray[x, y] = new EmptyTile(x, y);
                         }
                     }
-
-
                 }
             }
 
@@ -114,9 +112,6 @@ namespace GADE5112___20104162___Task_1
             }
         }
 
-
-
-        // Reminder
         public void UpdateVision()
         {
             //Updates the vision array for each Character.
@@ -165,24 +160,50 @@ namespace GADE5112___20104162___Task_1
 
                     //Integrate the Gold and Mage classes into your existing GameEngine and Map classes.
 
-                    //Your Enemy array in map should now randomize between Goblins and Mages.
+                    //Your Enemy array in map should now randomize between Goblins, Mages and Leaders.
 
-                    int typeEnemy = random.Next(3);
+                    int typeEnemy = random.Next(4);
+
                     if (typeEnemy <= 1)
                     {
                         tempTile = new Goblin(randomX, randomY);
                     }
-                    else
+                    else if (typeEnemy <= 2)
                     {
                         tempTile = new Mage(randomX, randomY);
                     }
-
+                    else if (typeEnemy <= 3)
+                    {
+                        tempTile = new Leader(randomX, randomY);
+                    }
                     break;
+
                 case Tile.TileType.Gold:
                     tempTile = new Gold(randomX, randomY);
                     break;
+
                 case Tile.TileType.Weapon:
+
+                    int typeWeapon = random.Next(4);
+
+                    if (typeWeapon <= 1)
+                    {
+                        tempTile = new MeleeWeapon(randomX, randomY, 'D', MeleeWeapon.Types.Dagger);
+                    }
+                    else if (typeWeapon <= 2)
+                    {
+                        tempTile = new MeleeWeapon(randomX, randomY, 'S', MeleeWeapon.Types.Longsword);
+                    }
+                    else if (typeWeapon <= 3)
+                    {
+                        tempTile = new RangedWeapon(randomX, randomY, 'R', RangedWeapon.Types.Rifle);
+                    }
+                    else if (typeWeapon <= 4)
+                    {
+                        tempTile = new RangedWeapon(randomX, randomY, 'B', RangedWeapon.Types.Longbow);
+                    }
                     break;
+
                 default:
                     break;
             }
@@ -202,6 +223,5 @@ namespace GADE5112___20104162___Task_1
             }
             return null;
         }
-
     }
 }

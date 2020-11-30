@@ -25,7 +25,6 @@ namespace GADE5112___20104162___Task_1
             }
         }
 
-
         public int Y
         {
             get
@@ -37,7 +36,6 @@ namespace GADE5112___20104162___Task_1
                 y = value;
             }
         }
-
 
         public enum TileType
         {
@@ -66,6 +64,7 @@ namespace GADE5112___20104162___Task_1
         }
     }
 
+
     class Obstacle : Tile
     {
         //Obstacle subclass contains nothing extra, and its constructor simply calls the base class’s constructor with X and Y parameters.
@@ -75,6 +74,7 @@ namespace GADE5112___20104162___Task_1
         {
         }
     }
+
 
     class EmptyTile : Tile
     {

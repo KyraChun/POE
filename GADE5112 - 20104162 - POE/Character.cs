@@ -45,7 +45,6 @@ namespace GADE5112___20104162___Task_1
             {
                 characterVisionArray = value;
             }
-
         }
 
         public enum Movement
@@ -65,6 +64,7 @@ namespace GADE5112___20104162___Task_1
 
             target.characterHP -= characterDamage;
         }
+
         public bool IsDead()
         {
             //Checks if the character is dead.
@@ -187,6 +187,7 @@ namespace GADE5112___20104162___Task_1
         }
 
         public abstract Movement ReturnMove(Movement move = 0);
+
         public abstract override string ToString();
     }
 }

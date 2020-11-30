@@ -15,7 +15,6 @@ namespace GADE5112___20104162___Task_1
         private Map localmap;
         private int border;
         private GameEngine gameEng;
-        private Enemy enemy;
         private Random random = new Random();
 
         public GameForm()
@@ -91,7 +90,7 @@ namespace GADE5112___20104162___Task_1
 
         private void start_btn_Click(object sender, EventArgs e)
         {
-            localmap = new Map(10, 20, 10, 20, 5, 10);
+            localmap = new Map(10, 20, 10, 20, 5, 10, 3);
             gameEng = new GameEngine(localmap);
             border = gameEng.map.MapWidthGrab - 1;
             updateMap();
@@ -132,6 +131,9 @@ namespace GADE5112___20104162___Task_1
                             break;
                         case Leader _:
                             map.Text += "L";
+                            break;
+                        case Weapon _:
+                            map.Text += "W";
                             break;
 
                     }

@@ -156,7 +156,6 @@ namespace GADE5112___20104162___Task_1
         //Qu 2.3 : Create the RangedWeapon class.
         //           The constructor switches on the type of weapon based on the parameter provided.
 
-
         public RangedWeapon(int positionX, int positionY, char symbol, Types weaponType) : base(positionX, positionY, symbol)
         {
             //A constructor that merely receives an enum variable that defines the type of Weapon to be created

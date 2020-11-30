@@ -11,10 +11,8 @@
             //Additionally, a Hero’s damage is always 2.
 
             base.characterDamage = 2;
-            base.characterMaxHP = heroHP;
-            
+            base.characterMaxHP = heroHP;            
         }
-
 
         public override string ToString()
         {

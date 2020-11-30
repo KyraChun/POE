@@ -10,7 +10,7 @@ namespace GADE5112___20104162___Task_1
     class Goblin : Enemy
     {
         //Concrete Goblin class which inherits from Enemy.
-        public Goblin(int positionY, int positionX, int enemyHP, int enemyDamage) : base(10, 1, positionY, positionX, 'G')
+        public Goblin(int positionY, int positionX) : base(10, 1, positionY, positionX, 'G')
         {
         }
 
@@ -87,6 +87,5 @@ namespace GADE5112___20104162___Task_1
 
             return selectedMove;
         }
-
     }
 }

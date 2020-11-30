@@ -1,5 +1,4 @@
-﻿using GADE5112___20104162___Task_1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +36,7 @@ namespace GADE5112___20104162___Task_1
             //It then sets the amount to a random amount between 1 and 5 (inclusive).
 
             amountOfGold = rnd.Next(1, 6);
-        }
+        }        
 
         public override string ToString()
         {
